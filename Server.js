@@ -88,7 +88,7 @@ app.get("/port",(req, res) =>{
 
 
 const run = () =>{
-    server.listen(Port,() =>{})
-    console.log(`server is runnign port ${Port}\n`)
+    server.listen(port,() =>{})
+    console.log(`server is runnign port ${port}\n`)
 }
 run();
