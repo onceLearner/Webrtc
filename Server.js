@@ -80,10 +80,10 @@ io.on("connection", socket =>{
 
 
 // run the server
-const Port = process.env.PORT || 5000
+const port = process.env.PORT || 5000
 // GET : get the port
 app.get("/port",(req, res) =>{
-    res.send({port:Port})
+    res.send({portIs:port})
 })
 
 
