@@ -3,14 +3,16 @@ import {ExpressPeerServer} from 'peer'
 
 import http from "http"
 import {Server} from "socket.io"
-import express from "express"
+import express, {json} from "express"
 import cors from "cors"
+import {findAllUsers} from "./controller/user/users.js";
 
 
 
 // create express app
 const app = express();
 app.use(cors())
+app.use(json())
 // create peerjs server
 
 
@@ -40,6 +42,8 @@ app.get("/hamid",(req, res) =>{
     res.send({name:"hamid"})
 })
 
+// find users
+app.get("/users",findAllUsers)
 
 
 
@@ -68,6 +72,8 @@ app.get("/peers",(req, res) =>{
 
 
 //socket.io
+
+
 
 io.on("connection", socket =>{
     // socket.emit("hamid", 'hi' );

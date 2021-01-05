@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^2.14.0",
     "@types/socket.io": "^2.1.12",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -22,5 +23,8 @@
     "save": "^2.4.0",
     "simple-peer": "^9.9.3",
     "socket.io": "^3.0.4"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.14.0"
   }
 }
