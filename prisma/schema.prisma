@@ -7,7 +7,56 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model test {
-  name String @id
-  age  Int?
+model users {
+
+  username String @unique
+  password String?
+  role String  @default("normal")
+}
+
+
+model Etudiant_details {
+  username String  @unique
+  name   String?
+  prenom String?
+  ecole String?
+  filiere String?
+  cv String
+
+}
+
+model Admin_Entreprise {
+  username String @unique
+  entreprise_id String?
+  name String?
+  prenom String?
+  post  String?
+}
+
+model user_socials{
+  username  String @unique
+  linkedin String
+  twitter String
+
+}
+
+model Entreprise {
+  id_entreprise String @unique
+  username_admin String?
+  title_entrepise String?
+  domaine String?
+  code_conf String
+  interests String
+  description String?
+
+}
+
+model Jobs {
+
+  id_job String @unique
+  id_entreprise String
+  title_job String
+  description_job String
+  tags  String[]
+
 }

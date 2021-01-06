@@ -5,7 +5,7 @@ import http from "http"
 import {Server} from "socket.io"
 import express, {json} from "express"
 import cors from "cors"
-import {findAllUsers} from "./controller/user/users.js";
+import {addUser, findAllUsers} from "./controller/user/users.js";
 
 
 
@@ -44,6 +44,7 @@ app.get("/hamid",(req, res) =>{
 
 // find users
 app.get("/users",findAllUsers)
+app.post("/user",addUser)
 
 
 
