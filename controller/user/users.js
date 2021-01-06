@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 export const findAllUsers = async  (req, res) =>{
     var dataRetrieved;
     try{
-        dataRetrieved = await prisma.test.findMany();
+        dataRetrieved = await prisma.users.findMany();
     }
     catch (e) {
         console.error(e)
