@@ -36,7 +36,8 @@ export const addUser =async  (req, res) =>{
             data: {
 
                 password: req.body.password,
-                username: req.body.username
+                username: req.body.username,
+                role: req.body.role
 
 
             }
