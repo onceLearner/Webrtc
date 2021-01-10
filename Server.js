@@ -5,7 +5,14 @@ import http from "http"
 import {Server} from "socket.io"
 import express, {json} from "express"
 import cors from "cors"
-import {addUser, findAllUsers} from "./controller/user/users.js";
+import {addUser, deleteUser, findAllUsers, updateUser} from "./controller/user/users.js";
+import {addJob, deleteJob, findAllJobs, updateJob} from "./controller/jobs/jobs.js";
+import {
+    addEntreprise,
+    deleteEntreprise,
+    findAllEntreprises,
+    updateEntreprise
+} from "./controller/entreprise/entreprise.js";
 
 
 
@@ -43,8 +50,24 @@ app.get("/hamid",(req, res) =>{
 })
 
 // find users
-app.get("/users",findAllUsers)
-app.post("/user",addUser)
+app.get("/user/users",findAllUsers)
+app.post("/user/add",addUser)
+app.post("/user/delete",deleteUser)
+app.post("/user/update",updateUser)
+
+// jobs
+
+app.get("/job/jobs",findAllJobs)
+app.post("/job/add",addJob)
+app.post("/job/delete",deleteJob)
+app.post("/job/update",updateJob)
+
+//entreprise
+
+app.get("/entreprise/entreprises",findAllEntreprises)
+app.post("/entreprise/add",addEntreprise)
+app.post("/entreprise/delete",deleteEntreprise)
+app.post("/entreprise/update",updateEntreprise)
 
 
 

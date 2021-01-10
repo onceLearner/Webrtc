@@ -50,3 +50,56 @@ export const addUser =async  (req, res) =>{
     }
     await res.send(user?true:false)
 }
+
+/**
+ * @return return the usrname of the user delted
+ */
+
+export const deleteUser = async (req, res ) =>{
+    let user,exep
+    try
+    {
+        user = await prisma.users.delete({
+            where : {
+                username: req.body.username
+            }
+
+        })
+
+
+    }catch (e) {
+        exep=e;
+        
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+    res.send(user?user:exep)
+}
+
+
+/**
+ * @param req the params is the username and new role
+ * @return return the usrname of the user is updated
+ */
+
+export const updateUser = async (req, res ) =>{
+    let user,exep
+    try
+    {
+        user = await prisma.users.update({
+            where : {username: req.body.username},
+            data:{role:req.body.role}
+
+        })
+
+
+    }catch (e) {
+        exep=e;
+
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+    res.send(user?user:exep)
+}
