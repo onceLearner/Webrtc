@@ -13,6 +13,18 @@ import {
     findAllEntreprises,
     updateEntreprise
 } from "./controller/entreprise/entreprise.js";
+import {addUserSocials, deleteUserSocials, findAllUserSocials, updateUserSocials} from "./controller/user/usersSocials.js";
+import {
+    addEtudiantDetails,
+    deleteEtudiantDetails,
+    findAllEtudiant_details,
+    updateEtudiantDetails
+} from "./controller/user/etudiant_details.js";
+import {
+    addAdminEntreprise,
+    deleteAdminEntreprise,
+    findAllAdmin_entreprise, updateAdminEntreprise
+} from "./controller/entreprise/admin_entreprise.js";
 
 
 
@@ -54,6 +66,25 @@ app.get("/user/users",findAllUsers)
 app.post("/user/add",addUser)
 app.post("/user/delete",deleteUser)
 app.post("/user/update",updateUser)
+
+// user details
+app.get("/user/socials/all",findAllUserSocials)
+app.post("/user/socials/add",addUserSocials)
+app.post("/user/socials/delete",deleteUserSocials)
+app.post("/user/socials/update",updateUserSocials)
+
+// Etudiant details
+app.get("/user/etudiant/all",findAllEtudiant_details)
+app.post("/user/etudiant/add",addEtudiantDetails)
+app.post("/user/etudiant/delete",deleteEtudiantDetails)
+app.post("/user/etudiant/update",updateEtudiantDetails)
+
+// Admin entreprise
+app.get("/user/admin_e/all",findAllAdmin_entreprise)
+app.post("/user/admin_e/add",addAdminEntreprise)
+app.post("/user/admin_e/delete",deleteAdminEntreprise)
+app.post("/user/admin_e/update",updateAdminEntreprise)
+
 
 // jobs
 

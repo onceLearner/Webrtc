@@ -95,7 +95,6 @@ export const updateEntreprise = async (req, res ) =>{
         entrepise = await prisma.entreprise.update({
             where : {id_entreprise : req.body.id_entreprise,},
             data:{
-                id_entreprise : req.body.id_entreprise,
                 username_admin : req.body.username_admin,
                 title_entrepise : req.body.title_entrepise,
                 domaine : req.body.domaine,
