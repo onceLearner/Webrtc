@@ -5,7 +5,14 @@ import http from "http"
 import {Server} from "socket.io"
 import express, {json} from "express"
 import cors from "cors"
-import {addUser, deleteUser, findAllUsers, updateUser} from "./controller/user/users.js";
+import {
+    addUser,
+    deleteUser,
+    findAllUsers,
+    findsingleUser,
+    findsingleUsers,
+    updateUser
+} from "./controller/user/users.js";
 import {addJob, deleteJob, findAllJobs, updateJob} from "./controller/jobs/jobs.js";
 import {
     addEntreprise,
@@ -63,6 +70,7 @@ app.get("/hamid",(req, res) =>{
 
 // find users
 app.get("/user/users",findAllUsers)
+app.post("/user/one_user",findsingleUser);
 app.post("/user/add",addUser)
 app.post("/user/delete",deleteUser)
 app.post("/user/update",updateUser)

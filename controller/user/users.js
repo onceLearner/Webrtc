@@ -22,6 +22,38 @@ export const findAllUsers = async  (req, res) =>{
 }
 
 
+
+// find a  single user
+
+export const findsingleUser = async  (req, res) =>{
+    var dataRetrieved;
+    try{
+        dataRetrieved = await prisma.users.findUnique({
+            where:{
+                username: req.body.username,
+                password: req.body.passowrd,
+                role : req.body.role
+            }
+
+        });
+    }
+    catch (e) {
+        console.error(e)
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+
+    res.send(dataRetrieved?true:false)
+
+}
+
+
+
+
+
+
+
 /**
  *
  * @param req icoming request with username and password
