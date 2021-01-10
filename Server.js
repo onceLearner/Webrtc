@@ -10,7 +10,6 @@ import {
     deleteUser,
     findAllUsers,
     findsingleUser,
-    findsingleUsers,
     updateUser
 } from "./controller/user/users.js";
 import {addJob, deleteJob, findAllJobs, updateJob} from "./controller/jobs/jobs.js";
@@ -44,7 +43,6 @@ app.use(json())
 
 // create http server + assign app to it
 const server = http.createServer(app);
-
 // create socket server
 const io = new Server(server,{
     cors:{
