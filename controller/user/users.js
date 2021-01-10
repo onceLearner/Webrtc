@@ -31,7 +31,7 @@ export const findsingleUser = async  (req, res) =>{
         dataRetrieved = await prisma.users.findUnique({
             where:{
                 username: req.body.username,
-                password: req.body.passowrd,
+                password: req.body.password,
                 role : req.body.role
             }
 
