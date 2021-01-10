@@ -24,11 +24,17 @@ export const findAllUsers = async  (req, res) =>{
 
 
 // find a  single user
+/**
+ *
+ * @param req
+ * @param res
+ * @return {Promise<void>}
+ */
 
 export const findsingleUser = async  (req, res) =>{
     var dataRetrieved;
     try{
-        dataRetrieved = await prisma.users.findUnique({
+        dataRetrieved = await prisma.users.findMany({
             where:{
                 username: req.body.username,
                 password: req.body.password,
@@ -44,7 +50,7 @@ export const findsingleUser = async  (req, res) =>{
         await prisma.$disconnect()
     }
 
-    res.send(dataRetrieved?true:false)
+    res.send(dataRetrieved.length?true:false)
 
 }
 
