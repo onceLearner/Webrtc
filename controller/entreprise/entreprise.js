@@ -59,10 +59,10 @@ export const addEntreprise =async  (req, res) =>{
  */
 
 export const deleteEntreprise = async (req, res ) =>{
-    let entrepise,exep
+    let entreprise,exep
     try
     {
-        entrepise = await prisma.entreprise.delete({
+        entreprise = await prisma.entreprise.delete({
             where : {
                 id_entreprise : req.body.id_entreprise,
             }
@@ -77,7 +77,7 @@ export const deleteEntreprise = async (req, res ) =>{
     finally {
         await prisma.$disconnect()
     }
-    res.send(entrepise?entrepise:exep)
+    res.send(entreprise?entreprise:exep)
 }
 
 
@@ -89,10 +89,10 @@ export const deleteEntreprise = async (req, res ) =>{
  */
 
 export const updateEntreprise = async (req, res ) =>{
-    let entrepise,exep
+    let entreprise,exep
     try
     {
-        entrepise = await prisma.entreprise.update({
+        entreprise = await prisma.entreprise.update({
             where : {id_entreprise : req.body.id_entreprise,},
             data:{
                 username_admin : req.body.username_admin,
@@ -113,5 +113,5 @@ export const updateEntreprise = async (req, res ) =>{
     finally {
         await prisma.$disconnect()
     }
-    res.send(entrepise?entrepise:exep)
+    res.send(entreprise?entreprise:exep)
 }
