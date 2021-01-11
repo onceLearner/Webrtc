@@ -96,7 +96,7 @@ export const updateEntreprise = async (req, res ) =>{
             where : {id_entreprise : req.body.id_entreprise,},
             data:{
                 username_admin : req.body.username_admin,
-                title_entrepise : req.body.title_entrepise,
+                title_entreprise : req.body.title_entreprise,
                 domaine : req.body.domaine,
                 code_conf : req.body.code_conf,
                 interests : req.body.interests,
