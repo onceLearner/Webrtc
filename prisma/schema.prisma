@@ -43,7 +43,7 @@ model user_socials{
 model Entreprise {
   id_entreprise String @unique
   username_admin String?
-  title_entrepise String?
+  title_entreprise String?
   domaine String?
   code_conf String
   interests String
