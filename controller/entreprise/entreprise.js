@@ -30,14 +30,14 @@ export const findAllEntreprises = async  (req, res) =>{
  */
 
 export const addEntreprise =async  (req, res) =>{
-    let entrepise ;
+    let entreprise ;
     try{
-        entrepise =  await prisma.entreprise.create({
+        entreprise =  await prisma.entreprise.create({
             data: {
 
                 id_entreprise : req.body.id_entreprise,
                 username_admin : req.body.username_admin,
-                title_entrepise : req.body.title_entrepise,
+                title_entreprise : req.body.title_entreprise,
                 domaine : req.body.domaine,
                 code_conf : req.body.code_conf,
                 interests : req.body.interests,
@@ -51,11 +51,11 @@ export const addEntreprise =async  (req, res) =>{
     finally {
         await prisma.$disconnect()
     }
-    await res.send(entrepise?true:false)
+    await res.send(entreprise?true:false)
 }
 
 /**
- * @return return the id of the entrepise deleted
+ * @return return the id of the entreprise deleted
  */
 
 export const deleteEntreprise = async (req, res ) =>{
