@@ -38,7 +38,7 @@ export const addEtudiantDetails =async  (req, res) =>{
                 name: req.body.name,
                 prenom: req.body.prenom,
                 ecole: req.body.ecole,
-                filiere: req.body.filere,
+                filiere: req.body.filiere,
                 cv: req.body.cv
 
             }
@@ -94,7 +94,7 @@ export const updateEtudiantDetails = async (req, res ) =>{
                 name: req.body.name,
                 prenom: req.body.prenom,
                 ecole: req.body.ecole,
-                filiere: req.body.filere,
+                filiere: req.body.filiere,
                 cv: req.body.cv
             }
 
