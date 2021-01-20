@@ -136,13 +136,79 @@ app.get("/peers",(req, res) =>{
 
 
 
+// var  userCount ;
+//
+// io.on("connection", socket =>{
+//     // socket.emit("hamid", 'hi' );
+//     // socket.emit('peers',allPeers)
+//     console.log(`new user connected ${socket.id} `);
+//     console.log(io.of("/").sockets.size);
+//     socket.on("username",data =>{
+//         console.log(data)
+//
+//     })
+//     // io.emit('peerCount1',allPeers)
+//
+//
+//     socket.on('disconnect',data =>{
+//
+//     } )
+//
+//
+// })
+
+
+
+
+var  userCount =0 ;
+var allUsers={}
+
 io.on("connection", socket =>{
-    // socket.emit("hamid", 'hi' );
-    // socket.emit('peers',allPeers)
-    // console.log("new user connected  ");
-    // console.log(io.of("/").sockets.size);
+
+    // get the user count
+    userCount = io.of("/").sockets.size
+
+    socket.on("username",data =>{
+        allUsers[socket.id] =data;
+
+        console.log(`new user connected ${socket.id} ,name : ${allUsers[socket.id]}, online : ${userCount}`);
+    })
+
     // io.emit('peerCount1',allPeers)
+    io.emit("userCount",userCount)
+    
+    
+    socket.on("message",data =>{
+        io.emit("message",data)
+    })
+
+
+
+    // disconnected socket
+    socket.on('disconnect',data =>{
+
+        io.emit("userCount",io.of("/").sockets.size)
+
+    } )
+
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
