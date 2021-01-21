@@ -58,5 +58,24 @@ model Jobs {
   title_job String
   description_job String
   tags  String[]
-
+  ville String @default("rabat")
+  profil String @default("ingenieur")
 }
+
+model Shows3 {
+
+  id_show String @unique
+  url_show String
+  description String
+}
+
+model Applied {
+  id_job String @unique
+  username String[]
+}
+model deposed {
+  entreprise_id String @unique
+  username String[]
+  cv String
+}
+

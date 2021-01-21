@@ -49,6 +49,15 @@ export const findsingleEntreprise= async  (req, res) =>{
 }
 
 
+/**
+ *
+ */
+
+
+
+
+
+
 
 
 
@@ -159,4 +168,67 @@ export  const getEntrepriseImg = async(req, res) =>{
      })
 
 
+}
+
+
+// find show
+
+export const findShow = async  (req, res) =>{
+    var dataRetrieved;
+    try{
+        dataRetrieved = await prisma.shows3.findMany();
+    }
+    catch (e) {
+        console.error(e)
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+
+    res.send(dataRetrieved)
+
+}
+
+
+// add show
+export const addShow =async  (req, res) =>{
+    let show ;
+    try{
+        show =  await prisma.shows3.create({
+            data: {
+                id_show:"a",
+                url_show : req.body.url_show,
+                description : req.body.description
+
+            }
+        })
+    }catch (e) {
+        console.error(e)
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+    await res.send(show?true:false)
+}
+
+
+// update
+export const updateShow =async  (req, res) =>{
+    let show ;
+    try{
+        show =  await prisma.shows3.update({
+            where : {id_show :"a" },
+            data:{
+                url_show:req.body.url_show,
+                description : req.body.description
+
+            }
+        })
+    }catch (e) {
+        console.error(e)
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+    await res.send(show?show:false)
 }

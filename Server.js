@@ -18,7 +18,7 @@ import {
     deleteEntreprise,
     findAllEntreprises,
     updateEntreprise,
-    getEntrepriseImg, findsingleEntreprise
+    getEntrepriseImg, findsingleEntreprise, findShow, addShow, updateShow
 } from "./controller/entreprise/entreprise.js";
 import {addUserSocials, deleteUserSocials, findAllUserSocials, updateUserSocials} from "./controller/user/usersSocials.js";
 import {
@@ -94,6 +94,7 @@ app.post("/user/admin_e/delete",deleteAdminEntreprise)
 app.post("/user/admin_e/update",updateAdminEntreprise)
 
 
+
 // jobs
 
 app.get("/job/jobs",findAllJobs)
@@ -110,6 +111,10 @@ app.post("/entreprise/delete",deleteEntreprise)
 app.post("/entreprise/update",updateEntreprise)
 
 app.get("/entreprise/img/:id_entreprise",getEntrepriseImg)
+app.get("/entreprise/show/shows",findShow)
+app.post("/entreprise/show/add",addShow)
+app.post("/entreprise/show/update",updateShow)
+
 
 
 

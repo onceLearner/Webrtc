@@ -39,7 +39,9 @@ export const addJob =async  (req, res) =>{
                 id_entreprise: req.body.id_entreprise,
                 title_job: req.body.title_job,
                 description_job: req.body.description_job,
-                tags: req.body.tags
+                tags: req.body.tags,
+                ville: req.body.ville,
+                profil:req.body.profil
 
 
             }
@@ -93,11 +95,15 @@ export const updateJob = async (req, res ) =>{
     {
         job = await prisma.jobs.update({
             where : {id_job: req.body.id_job,},
-            data:{
+            data: {
                 id_entreprise: req.body.id_entreprise,
                 title_job: req.body.title_job,
                 description_job: req.body.description_job,
-                tags: req.body.tags}
+                tags: req.body.tags,
+                ville: req.body.ville,
+                profil:req.body.profil
+
+            }
 
         })
 
