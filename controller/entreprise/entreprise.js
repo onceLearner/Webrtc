@@ -1,5 +1,6 @@
 import pkg from '@prisma/client';
 const {PrismaClient} = pkg;
+import fs from "fs"
 
 
 const prisma = new PrismaClient();
@@ -20,6 +21,35 @@ export const findAllEntreprises = async  (req, res) =>{
     res.send(dataRetrieved)
 
 }
+
+
+/**
+ *
+ */
+
+export const findsingleEntreprise= async  (req, res) =>{
+    var dataRetrieved;
+    try{
+        dataRetrieved = await prisma.entreprise.findMany({
+            where:{
+                id_entreprise:req.params.id_entreprise
+            }
+
+        });
+    }
+    catch (e) {
+        console.error(e)
+    }
+    finally {
+        await prisma.$disconnect()
+    }
+
+    res.send(dataRetrieved?dataRetrieved:false)
+
+}
+
+
+
 
 
 /**
@@ -114,4 +144,19 @@ export const updateEntreprise = async (req, res ) =>{
         await prisma.$disconnect()
     }
     res.send(entreprise?entreprise:exep)
+}
+
+
+// get entreprise image
+
+export  const getEntrepriseImg = async(req, res) =>{
+    let entrepriseId =req.params.id_entreprise
+    let exep,file;
+
+     fs.readFile(`assets/images/${entrepriseId}.jpg` , (err, data ) => {
+         if(err) res.status(500).send(err);
+         res.send(data)
+     })
+
+
 }
